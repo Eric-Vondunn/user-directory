@@ -1,12 +1,13 @@
 import React from "react";
-import EmployeeCard from "./EmployeeCard";
+import EmployeeProfile from "./EmployeeProfile";
 
+//UsersView
 function UsersView(props) {
   return (
     <div>
       {console.log(props.employees)}
       <h1>Users View</h1>
-      <EmployeeCard employees={props.employees} />
+      <EmployeeProfile employees={props.employees} />
     </div>
   );
 }

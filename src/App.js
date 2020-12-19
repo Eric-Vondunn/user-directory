@@ -1,34 +1,20 @@
-// import React from "react";
-// import Main from "./components/Main";
-// import Wrapper from "./components/Wrapper";
-// import Header from "./components/Header";
-
-// import "./App.css";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Wrapper>
-//         <Header />
-//         <Main />
-//       </Wrapper>
-//     </div>
-//   );
-// }
-
 import React from "react";
 import "./App.css";
+import UsersView from "./components/UsersView";
+import API from "./utils/API";
+import FormInput from "./components/FormInput";
+import Header from "./components/Header";
 
-function FormInput() {
-  <div>form input</div>;
-}
+// function FormInput() {
+//   <div>form input</div>;
+// }
 
-function UsersView(props) {
-  // props: users (filteredUsers)
-  // button to filter by name
-  // onClick -> this.sortUsers
-  <div>users view</div>;
-}
+// function UsersView(props) {
+//   // props: users (filteredUsers)
+//   // button to filter by name
+//   // onClick -> this.sortUsers
+//   <div>users view</div>;
+// }
 
 class App extends React.Component {
   state = {
@@ -41,11 +27,24 @@ class App extends React.Component {
   // component did mount
   //call API (utils)
   // setState
-  //allUsers: [],
-  //filteredUsers: [],
+
+  componentDidMount() {
+    API.getUsers().then((employees) => {
+      this.setState({ allUsers: employees.data.results });
+    });
+  }
 
   // handleInputChange
   // change (setState) searchTerm
+
+  handleInputChange = (e) => {
+    let value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({ [name]: value });
+    console.log(value);
+  };
+
   // filter users based on searchTerm
   // sort if relevant
 
@@ -55,53 +54,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <FormInput />
-        <UsersView />
+        <FormInput
+          handleInputChange={this.handleInputChange}
+          searchTerm={this.searchTerm}
+        />
+        <UsersView employees={this.state.allUsers} />
       </div>
     );
   }
 }
 
 export default App;
-
-//psuedo code
-
-// import React from "react";
-// import "./App.css";
-// function FormInput() {
-//   return <div>form input</div>;
-// }
-// function UsersView(props) {
-//   // props: users (filteredUsers)
-//   // button to filter by name
-//   // onClick -> this.sortUsers
-//   return <div>users view</div>;
-// }
-// class App extends React.Component {
-//   state = {
-//     allUsers: [],
-//     filteredUsers: [],
-//     searchTerm: ""
-//   }
-//   // component did mount
-//   // call API (utils)
-//   // setState
-//   // allUsers: [],
-//   // filteredUsers: [],
-//   // handleInputChange
-//   // change (setState) searchTerm
-//   // filter users based on searchTerm
-//   // sort if relevant
-//   // sortUsers
-//   // using js sort (by string, or if you want to sort by number (DOB))
-//   // optionally implement, up or down
-//   render() {
-//     return (
-//       <div className="App">
-//         <FormInput />
-//         <UsersView />
-//       </div>
-//     );
-//   }
-// }
-// export default App;

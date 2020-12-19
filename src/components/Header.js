@@ -1,39 +1,18 @@
+//header
+
 import React from "react";
 
-function EmployeeCard(props) {
+function Header() {
   return (
-    <>
-      {props.employees.length > 0
-        ? props.employees.map((employee, index) => {
-            return (
-              <div className="card" key={index}>
-                <div className="img-container">
-                  <img
-                    alt={employee.name.first}
-                    src={employee.picture.medium}
-                  />
-                </div>
-                <div className="content">
-                  <ul style={{ listStyleType: "none" }}>
-                    <li>
-                      <strong>Name:</strong> {employee.name.first}{" "}
-                      {employee.name.last}
-                    </li>
-                    <li>
-                      <strong>Email:</strong> {employee.email}
-                    </li>
-                    <li>
-                      <strong>Cell phone:</strong> {employee.cell}
-                    </li>
-                  </ul>
-                </div>
-                <span className="remove">𝘅</span>
-              </div>
-            );
-          })
-        : "no search found"}
-    </>
+    <div className="jumbotron jumbotron-fluid tester">
+      <div className="container dark">
+        <h1 className="display-4 lighter">Employee Directory</h1>
+        <p className="lead lighter">
+          Search employees and filter them by their names
+        </p>
+      </div>
+    </div>
   );
 }
 
-export default EmployeeCard;
+export default Header;
