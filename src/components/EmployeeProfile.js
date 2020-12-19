@@ -1,6 +1,5 @@
 import React from "react";
 
-//EmployeeCard
 function EmployeeProfile(props) {
   return (
     <>
@@ -21,10 +20,17 @@ function EmployeeProfile(props) {
                       {employee.name.last}
                     </li>
                     <li>
-                      <strong>Email:</strong> {employee.email}
+                      <strong>Gender:</strong> {employee.gender}
                     </li>
                     <li>
+                      <strong>Location:</strong> {employee.location.city}
+                    </li>
+
+                    <li>
                       <strong>Cell phone:</strong> {employee.cell}
+                    </li>
+                    <li>
+                      <strong>Email:</strong> {employee.email}
                     </li>
                   </ul>
                 </div>

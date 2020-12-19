@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
+import Header from "./components/Header";
 import UsersView from "./components/UsersView";
 import API from "./utils/API";
 import FormInput from "./components/FormInput";
-import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // function FormInput() {
@@ -21,9 +21,10 @@ class App extends React.Component {
   state = {
     allUsers: [],
     filteredUsers: [],
-    searchTerm: "",
     firstName: "",
     lastName: "",
+    gender: "",
+    location: "",
   };
 
   // component did mount
@@ -56,13 +57,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <FormInput
           handleInputChange={this.handleInputChange}
-          searchTerm={this.searchTerm}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
         />
         <UsersView employees={this.state.allUsers} />
-
-        <Header />
       </div>
     );
   }
