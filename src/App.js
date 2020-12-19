@@ -4,6 +4,7 @@ import UsersView from "./components/UsersView";
 import API from "./utils/API";
 import FormInput from "./components/FormInput";
 import Header from "./components/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // function FormInput() {
 //   <div>form input</div>;
@@ -21,7 +22,8 @@ class App extends React.Component {
     allUsers: [],
     filteredUsers: [],
     searchTerm: "",
-    sortOption: "",
+    firstName: "",
+    lastName: "",
   };
 
   // component did mount
@@ -59,6 +61,8 @@ class App extends React.Component {
           searchTerm={this.searchTerm}
         />
         <UsersView employees={this.state.allUsers} />
+
+        <Header />
       </div>
     );
   }

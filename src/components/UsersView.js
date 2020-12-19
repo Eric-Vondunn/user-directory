@@ -1,5 +1,6 @@
 import React from "react";
 import EmployeeProfile from "./EmployeeProfile";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 //UsersView
 function UsersView(props) {
