@@ -5,13 +5,10 @@
 import React from "react";
 
 function FormInput(props) {
-  console.log(props);
+  //console.log(props);
 
   return (
     <div>
-      <p>
-        Hello {props.firstName} {props.lastName}
-      </p>
       <form className="form">
         <input
           value={props.firstName}
@@ -19,6 +16,8 @@ function FormInput(props) {
           onChange={props.handleInputChange}
           type="text"
           placeholder="First Name"
+          size="20"
+          height="30"
         />
         <input
           value={props.lastName}
@@ -26,8 +25,12 @@ function FormInput(props) {
           onChange={props.handleInputChange}
           type="text"
           placeholder="Last Name"
+          size="20"
+          height="30"
         />
-        <button onClick={props.handleFormSubmit}>Submit</button>
+        <button onClick={props.handleFormSubmit} class="btn btn-info">
+          Submit
+        </button>
       </form>
     </div>
   );

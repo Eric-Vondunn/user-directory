@@ -20,7 +20,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class App extends React.Component {
   state = {
     allUsers: [],
-    filteredUsers: [],
+    filteredUsers: [""],
     firstName: "",
     lastName: "",
     gender: "",
@@ -62,6 +62,7 @@ class App extends React.Component {
           handleInputChange={this.handleInputChange}
           firstName={this.state.firstName}
           lastName={this.state.lastName}
+          filteredUsers={this.state.filteredUsers}
         />
         <UsersView employees={this.state.allUsers} />
       </div>

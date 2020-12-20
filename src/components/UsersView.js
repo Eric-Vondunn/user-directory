@@ -7,7 +7,7 @@ function UsersView(props) {
   return (
     <div>
       {console.log(props.employees)}
-      <h1>Users View</h1>
+      <h1>Employees</h1>
       <EmployeeProfile employees={props.employees} />
     </div>
   );
